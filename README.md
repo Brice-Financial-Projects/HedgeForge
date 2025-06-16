@@ -1,12 +1,12 @@
 # 📈 HedgeForge: Portfolio Risk Modeling Engine (In Progress)
 ---
 
-title: "HedgeForge: Portfolio Risk Modeling Engine"
-description: "A Python-based quantitative finance project for simulating and optimizing portfolio strategies using Monte Carlo simulations, stochastic processes, and risk analytics. Ideal for roles in ALM, ESG modeling, and institutional finance."
-author: "Brice A. Nelson"
-tags: ["quantitative finance", "portfolio optimization", "monte carlo", "asset-liability management", "ESG modeling", "python", "risk analytics", "financial modeling"]
-canonical_url: "https://github.com/Brice-Financial-Projects/HedgeForge"
-robots: index,follow
+title: "HedgeForge: Portfolio Risk Modeling Engine"<br>
+description: "A Python-based quantitative finance project for simulating and optimizing portfolio strategies using Monte Carlo simulations, stochastic processes, and risk analytics. Ideal for roles in ALM, ESG modeling, and institutional finance."<br>
+author: "Brice A. Nelson"<br>
+tags: ["quantitative finance", "portfolio optimization", "monte carlo", "asset-liability management", "ESG modeling", "python", "risk analytics", "financial modeling"]<br>
+canonical_url: "https://github.com/Brice-Financial-Projects/HedgeForge"<br>
+robots: index,follow<br>
 
 ---
 
