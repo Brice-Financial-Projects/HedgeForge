@@ -7,8 +7,6 @@ import pandas as pd
 from typing import Union, Optional, Dict, Any, Tuple, List
 from scipy.optimize import minimize
 import logging
-from . import risk
-from . import utils
 
 logger = logging.getLogger(__name__)
 
@@ -176,7 +174,9 @@ class PortfolioOptimizer:
         
         # Calculate actual CVaR
         portfolio_returns = self.returns @ weights
-        cvar = risk.calculate_cvar(portfolio_returns, confidence_level=confidence_level)
+        threshold = np.percentile(portfolio_returns, (1 - confidence_level) * 100)
+        tail_returns = portfolio_returns[portfolio_returns <= threshold]
+        cvar = np.mean(tail_returns) if len(tail_returns) > 0 else threshold
         
         return {
             'weights': weights,

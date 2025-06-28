@@ -16,6 +16,7 @@ from pathlib import Path
 # Add src to path
 sys.path.append(str(Path(__file__).parent.parent / 'src'))
 
+# Import specific functions to avoid relative import issues
 from utils import generate_sample_data, load_config
 from risk import calculate_volatility, calculate_sharpe_ratio, calculate_var
 from optimizer import PortfolioOptimizer
@@ -56,7 +57,7 @@ def main():
     if st.sidebar.button("Generate New Data"):
         st.session_state.data = None
     
-    if 'data' not in st.session_state:
+    if 'data' not in st.session_state or st.session_state.data is None:
         prices = generate_sample_data(n_assets=n_assets, n_days=n_days)
         returns = prices.pct_change().dropna()
         st.session_state.data = {'prices': prices, 'returns': returns}
@@ -146,12 +147,12 @@ def main():
     
     with col1:
         # Run optimization
-        optimizer = PortfolioOptimizer(returns, risk_free_rate=risk_free_rate)
+        optimizer_instance = PortfolioOptimizer(returns, risk_free_rate=risk_free_rate)
         
         if strategy == "mean_variance":
-            result = optimizer.mean_variance_optimization()
+            result = optimizer_instance.mean_variance_optimization()
         else:  # cvar
-            result = optimizer.cvar_optimization()
+            result = optimizer_instance.cvar_optimization()
         
         # Display results
         st.write("**Optimization Results:**")
@@ -182,7 +183,7 @@ def main():
     st.markdown("---")
     st.subheader("Efficient Frontier")
     
-    frontier = optimizer.efficient_frontier(n_points=50)
+    frontier = optimizer_instance.efficient_frontier(n_points=50)
     
     fig = go.Figure()
     fig.add_trace(go.Scatter(
@@ -216,8 +217,8 @@ def main():
     
     if st.button("Run Backtest"):
         with st.spinner("Running backtest..."):
-            backtest = BacktestEngine(returns, risk_free_rate=risk_free_rate)
-            backtest_result = backtest.run_backtest(
+            backtest_instance = BacktestEngine(returns, risk_free_rate=risk_free_rate)
+            backtest_result = backtest_instance.run_backtest(
                 strategy=strategy,
                 lookback_period=lookback_period,
                 rebalance_frequency=rebalance_freq,
