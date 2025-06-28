@@ -106,11 +106,13 @@ hedge_forge/
 - 📉 **Risk & Performance Analytics**  
   VaR, CVaR, Sharpe Ratio, drawdown, volatility, and custom metrics.
 
-- 🔁 **Backtesting Framework**  
-  Rolling window backtests to evaluate historical and synthetic strategies.
+- 🔁 **Backtesting & Statistical Validation**  
+  Rolling window backtests to evaluate historical and synthetic strategies.  
+  Includes hypothesis testing to assess the statistical significance of strategy performance differences — ensuring improvements aren't due to randomness.
 
 - 🧪 **Stress Testing & Scenario Modeling**  
-  Simulate edge cases: interest rate shifts, volatility spikes, correlation breakdowns.
+  Simulate edge cases: interest rate shifts, volatility spikes, correlation breakdowns.  
+  Track outcome shifts across economic regimes and use A/B hypothesis testing to evaluate the impact of specific shocks on portfolio utility and drawdown.
 
 - 📓 **Reproducible Docs with Quarto**  
   Full methodology, code explanations, charts, and results.
@@ -131,7 +133,9 @@ HedgeForge is designed to mirror the complexity and requirements of institutiona
 
 ## 🔧 Development Status
 
-This project is currently in active development, with the simulation engine and portfolio optimizer under construction. All core modules are being built with production-quality structure and extensibility in mind.
+- This project is currently in active development, with the simulation engine and portfolio optimizer under construction.  
+- Statistical testing modules (e.g., Sharpe ratio comparisons, t-tests for performance attribution) are also being prototyped to add interpretability and rigor to backtesting workflows.  
+- All core modules are being built with production-quality structure and extensibility in mind.
 
 ---
 
