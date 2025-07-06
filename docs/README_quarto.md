@@ -1,92 +1,93 @@
 # Hedge-Forge Quarto Documentation
 
-This document describes the structure and purpose of the **Quarto-based documentation** for the Hedge-Forge portfolio optimization project.
+This repository contains the **Quarto documentation** for the Hedge-Forge portfolio optimization project.
 
-The goal is to produce **client-facing, professional documentation** suitable for:
+The goal of this documentation is to produce **client-facing, professional reports** suitable for:
 
 - Technical stakeholders
 - Hiring managers
-- Clients interested in portfolio optimization methods and results
+- Clients interested in understanding portfolio optimization methods and results
 
 ---
 
-## 📂 Planned File Structure
+## 📂 Project File Structure
+
+The documentation files are organized as follows:
 
 ```
 hedge_forge/
 ├── docs/                          # Project documentation via Quarto
 │   ├── index.qmd                  # Executive summary / overview
 │   ├── methodology.qmd            # Stochastic modeling, math background
-│   ├── data_pipeline.qmd
-│   ├── eda.qmd
+│   ├── data_pipeline.qmd          # Data collection, cleaning, and processing steps
+│   ├── eda.qmd                    # Exploratory Data Analysis
 │   ├── optimization_results.qmd   # Output, charts, interpretations
-│   ├── risk_metrics.qmd
-│   ├── appendix.qmd               # Extra formulas, derivations, notes
-│   └── _quarto.yml
+│   ├── risk_metrics.qmd           # Definitions and calculations for risk metrics
+│   ├── appendix.qmd               # Additional formulas, derivations, references
+│   └── _quarto.yml                # Quarto configuration for site structure and appearance
 ```
 
-Below is a description of what each file should contain.
+Below is a brief description of what each file contains.
 
 ---
 
-## 📄 Page-by-Page Purpose
+## 📄 Documentation Pages
 
 ### `index.qmd`
 
-- Project overview and purpose
-- High-level description of Hedge-Forge
-- Architecture diagrams (e.g. how components connect)
-- Quick summary of results for non-technical readers
+- Provides an overview of the Hedge-Forge project
+- Summarizes the business problem being solved
+- High-level architecture diagrams
+- Quick summary of results for non-technical audiences
 
 ---
 
 ### `methodology.qmd`
 
 - Mathematical background of portfolio optimization:
-  - Mean-variance theory
+  - Mean-variance optimization
   - Sharpe ratio maximization
-  - Constraints (e.g. sector caps, no shorting)
+  - Portfolio constraints (e.g. sector limits, no shorting)
 - Definitions of risk metrics:
-  - volatility
+  - Volatility
   - Value at Risk (VaR)
   - Conditional Value at Risk (CVaR)
-- Explanation of why these methods are used
+- Explanations of why these methods are chosen
 - LaTeX equations for mathematical clarity
 
 ---
 
 ### `data_pipeline.qmd`
 
-- Description of the data sources:
+- Details about the project’s data sources:
   - Market data APIs
   - Synthetic data generation
-  - CSV files
-- Data validation steps:
-  - Missing values
-  - Outliers
-  - Data type checks
-- Pipeline diagram showing the flow:
-  - Load → Validate → Transform → Save
-- Description of utility functions:
-  - load_data()
-  - validate_data()
-  - compute_log_returns()
-  - compute_covariance_matrix()
-  - compute_rolling_metrics()
+  - CSV data sources
+- Data validation and cleaning steps:
+  - Handling missing values
+  - Detecting and managing outliers
+  - Ensuring data consistency and correct types
+- Flow diagrams illustrating the pipeline
+- Descriptions of utility functions:
+  - `load_data()`
+  - `validate_data()`
+  - `compute_log_returns()`
+  - `compute_covariance_matrix()`
+  - `compute_rolling_metrics()`
 
 ---
 
 ### `eda.qmd`
 
-- Exploratory Data Analysis (EDA) findings:
-  - Distribution plots of asset returns
+- Results of the Exploratory Data Analysis:
+  - Return distributions
   - Correlation heatmaps
-  - Rolling volatility and trends
-- Commentary on insights:
+  - Rolling volatility trends
+- Observations on data characteristics:
   - Skewness
   - Kurtosis
-  - Market clustering or anomalies
-- Visualizations to help understand the dataset before modeling
+  - Market behavior anomalies
+- Visualizations to illustrate insights before modeling
 
 ---
 
@@ -100,68 +101,155 @@ Below is a description of what each file should contain.
   - Weight allocations
   - Expected returns
   - Portfolio volatility
-- Visualizations:
-  - Efficient frontier plots
-  - Comparison of different strategies
+- Charts and plots:
+  - Efficient frontier
+  - Comparison between strategies
 - Interpretation of results for stakeholders
 
 ---
 
 ### `risk_metrics.qmd`
 
-- Definitions and explanations of:
+- Definitions and explanations of risk metrics:
   - Volatility
   - Value at Risk (VaR)
   - Conditional VaR (CVaR)
   - Tracking error
-- Calculations and examples applied to optimized portfolios
-- Visualizations of risk metrics
-- Tables summarizing risk statistics across scenarios
+- Risk calculations applied to optimized portfolios
+- Visualizations and tables summarizing risk statistics
 
 ---
 
 ### `appendix.qmd`
 
-- Additional derivations or mathematical details
-- Extended formulas not shown in main sections
-- Troubleshooting notes or modeling assumptions
-- Reference list of papers, books, or external resources used during project development
+- Detailed mathematical derivations
+- Extended formulas and calculations not shown in main sections
+- Troubleshooting notes and assumptions
+- References to research papers, textbooks, and external resources
 
 ---
 
 ### `_quarto.yml`
 
-- Configuration file for Quarto project
-- Defines:
-  - Website title
-  - Navigation menu linking all pages
-  - Theme and style (e.g. color schemes)
+- Quarto configuration file for:
+  - Site navigation structure
+  - Page titles and links
+  - Theme and styling (e.g. colors, fonts)
   - Output formats (HTML, PDF, etc.)
-- Ensures all pages are integrated into a cohesive documentation site or PDF report
+- Ensures the documentation builds into a cohesive multi-page website or PDF report
 
 ---
 
-## 💡 Why Quarto?
+## 💡 Why Use Quarto?
 
-Quarto was chosen for hedge-forge because it:
+The Hedge-Forge documentation uses Quarto because it:
 
-✅ Combines text, math, code, and visuals seamlessly  
-✅ Produces clean, professional HTML or PDF reports  
-✅ Supports equations for financial modeling  
-✅ Allows separate pages for clear documentation structure  
-✅ Works well for both internal use and client-facing deliverables
-
----
-
-## 🔧 Next Steps
-
-- Install Quarto CLI via [https://quarto.org](https://quarto.org)
-- Create the `docs/` folder structure
-- Draft section headings in each `.qmd` file
-- Configure `_quarto.yml` for navigation and themes
-- Start writing content for each page
-- Render the documentation into HTML or PDF for review
+✅ Combines narrative text, math equations, code, and visuals seamlessly  
+✅ Produces clean, professional HTML and PDF reports  
+✅ Handles LaTeX equations for financial modeling  
+✅ Supports multi-page documentation with logical navigation  
+✅ Works well for both internal and client-facing deliverables
 
 ---
 
-*Hedge-Forge aims to be a showcase-level project, and this Quarto documentation will help present it professionally and clearly to clients and stakeholders.*
+## 🚀 How to Build and View the Documentation
+
+Follow these steps to build and view the Hedge-Forge documentation locally.
+
+### 1. Install Quarto
+
+Download and install Quarto from:
+
+[https://quarto.org/docs/get-started/](https://quarto.org/docs/get-started/)
+
+---
+
+### 2. Navigate to the Project Directory
+
+From your terminal:
+
+```bash
+cd hedge_forge/docs
+```
+
+---
+
+### 3. Render the Documentation
+
+To build the entire documentation site, run:
+
+```bash
+quarto render
+```
+
+This generates the HTML website in the `_site/` directory.
+
+---
+
+### 4. Preview the Documentation Locally
+
+For live preview with auto-reload:
+
+```bash
+quarto preview
+```
+
+By default, this runs a local web server at:
+
+```
+http://localhost:4200
+```
+
+Open that URL in your web browser to browse the documentation.
+
+---
+
+### 5. Open the Site Manually
+
+Alternatively, open the main HTML file directly:
+
+- Navigate to:
+
+    ```
+    hedge_forge/docs/_site/index.html
+    ```
+
+- Double-click `index.html` or open it in your browser of choice.
+
+---
+
+### Optional: Build PDF Version
+
+To generate a PDF report instead of HTML:
+
+1. Add the following to `_quarto.yml`:
+
+    ```yaml
+    format:
+      pdf:
+        documentclass: article
+    ```
+
+2. Run:
+
+    ```bash
+    quarto render --to pdf
+    ```
+
+This produces a single PDF file with all pages combined.
+
+---
+
+## 🤝 Contributing
+
+If you wish to help improve the documentation:
+
+- Edit the relevant `.qmd` files
+- Re-render the documentation using `quarto render`
+- Submit changes via a pull request
+
+---
+
+**Hedge-Forge** aims to be a flagship-level fintech project. This Quarto documentation helps present the project in a professional, clear, and client-friendly format.
+
+---
