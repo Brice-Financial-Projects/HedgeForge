@@ -22,7 +22,7 @@ pytest>=6.0.0
 pytest-cov>=3.0.0
 
 # Documentation
-quarto>=1.0.0
+quarto>=0.1.0
 
 # Optional: Interactive dashboards
 streamlit>=1.20.0
