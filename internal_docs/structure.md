@@ -36,9 +36,13 @@ hedge_forge/
 │
 ├── docs/                          # Project documentation via Quarto
 │   ├── index.qmd                  # Executive summary / overview
-│   ├── methodology.qmd           # Stochastic modeling, math background
-│   ├── results.qmd               # Output, charts, interpretations
-│   └── appendix.qmd              # Extra formulas, derivations, notes
+│   ├── methodology.qmd            # Stochastic modeling, math background
+│   ├── data_pipeline.qmd
+│   ├── eda.qmd
+│   ├── optimization_results.qmd   # Output, charts, interpretations
+│   ├── risk_metrics.qmd
+│   ├── appendix.qmd               # Extra formulas, derivations, notes
+│   └── _quarto.yml
 │
 ├── config/                        # Configuration files for pipeline
 │   └── settings.yaml              # Model parameters, toggles, etc.
@@ -53,4 +57,3 @@ hedge_forge/
 ├── requirements.txt              # pip fallback for non-conda users
 ├── README.md                     # Project overview and usage instructions
 └── .gitignore                    # Exclude data, logs, virtualenvs, etc.
-

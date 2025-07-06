@@ -1,0 +1,7 @@
+---
+title: "Methodology"
+---
+
+# Methodology
+
+*This page will describe the mathematical and statistical background of the Hedge-Forge optimizer.*

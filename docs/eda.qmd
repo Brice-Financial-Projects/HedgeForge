@@ -1,0 +1,7 @@
+---
+title: "Exploratory Data Analysis (EDA)"
+---
+
+# EDA
+
+*This page will describe the EDA of the Hedge-Forge optimizer.*

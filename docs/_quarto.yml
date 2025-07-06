@@ -1,0 +1,44 @@
+project:
+  type: website
+
+website:
+  title: "Hedge-Forge Portfolio Optimization"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: methodology.qmd
+        text: Methodology
+      - href: data_pipeline.qmd
+        text: Data Pipeline
+      - href: eda.qmd
+        text: EDA
+      - href: optimization_results.qmd
+        text: Optimization Results
+      - href: risk_metrics.qmd
+        text: Risk Metrics
+      - href: appendix.qmd
+        text: Appendix
+  sidebar:
+    style: floating
+    contents:
+      - section: "Project Overview"
+        contents:
+          - index.qmd
+      - section: "Technical Details"
+        contents:
+          - methodology.qmd
+          - data_pipeline.qmd
+          - eda.qmd
+          - optimization_results.qmd
+          - risk_metrics.qmd
+      - section: "Additional Information"
+        contents:
+          - appendix.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    number-sections: true

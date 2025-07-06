@@ -1,0 +1,7 @@
+---
+title: "Appendix"
+---
+
+# Appendix
+
+*This page will describe Reference list of papers, books, or external resources used during project development of the Hedge-Forge optimizer.*
