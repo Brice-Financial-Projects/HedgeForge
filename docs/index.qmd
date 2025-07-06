@@ -1,7 +1,81 @@
 ---
 title: "Hedge-Forge Portfolio Optimization"
+author: "Brice Nelson, PE, MBA"
+date: today
 ---
 
-# Hedge-Forge
+# Hedge-Forge Portfolio Optimization
 
-Welcome to the Hedge-Forge portfolio optimization documentation.
+---
+
+## Business Statement
+
+This report has been prepared for **ABC Investments, Inc.**, an investment management firm focused on delivering competitive returns while carefully managing portfolio risk for its clients.
+
+**Project Overview**
+
+ABC Investments, Inc. provided **historical transaction and holdings data covering a $500,000 investment portfolio over the past six years.** This data includes:
+
+- Asset-level purchase and sale transactions
+- Historical valuations
+- Cash flows and reinvestments
+
+The firm seeks a deeper understanding of how this capital has been allocated historically, and how the portfolio’s structure and performance could be improved going forward.
+
+**Purpose of This Report**
+
+This report is designed to:
+
+✅ Analyze ABC Investments, Inc.’s portfolio performance over the past six years
+✅ Evaluate the portfolio’s risk characteristics, including volatility, Value at Risk (VaR), and Conditional VaR (CVaR)
+✅ Identify asset correlations and potential diversification opportunities
+✅ Simulate alternative portfolio allocations using optimization strategies such as minimum variance and maximum Sharpe ratio
+✅ Provide clear visualizations and insights to support informed decision-making
+
+**Analytical Approach**
+
+Using **Hedge-Forge**, a quantitative optimization engine developed by Data Forge Analytics, the following steps were performed:
+
+1. **Data Preparation**
+   - Import and clean six years of portfolio data
+   - Validate data integrity and consistency
+
+2. **Performance Analysis**
+   - Calculate asset-level and portfolio-level returns
+   - Assess historical performance trends
+
+3. **Risk Analysis**
+   - Compute volatility, VaR, and CVaR for the portfolio
+   - Analyze asset correlations to identify concentration risk
+
+4. **Portfolio Optimization**
+   - Model alternative portfolio allocations under various objectives
+   - Apply realistic constraints (e.g., no shorting, sector limits)
+
+5. **Results Presentation**
+   - Summarize findings in clear tables, charts, and narrative insights
+   - Provide recommendations for potential portfolio adjustments
+
+**Contents of This Report**
+
+This report includes:
+
+- An executive summary of findings
+- Mathematical and methodological explanations
+- Data pipeline and validation procedures
+- Exploratory data analysis (EDA) results
+- Detailed optimization results and scenario simulations
+- A discussion of portfolio risk metrics
+- Appendices with supporting calculations and references
+
+**Outcome**
+
+The goal of this analysis is to equip ABC Investments, Inc. with data-driven insights to:
+
+- Enhance risk-adjusted returns
+- Identify areas for potential portfolio restructuring
+- Support transparent client reporting and regulatory compliance
+
+Data Forge Analytics is committed to delivering actionable intelligence that transforms raw portfolio data into clear strategies for future growth and stability.
+
+---

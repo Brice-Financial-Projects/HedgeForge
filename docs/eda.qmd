@@ -1,5 +1,7 @@
 ---
 title: "Exploratory Data Analysis (EDA)"
+author: "Brice Nelson, PE, MBA"
+date: today
 ---
 
 # EDA

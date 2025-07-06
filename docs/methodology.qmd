@@ -1,5 +1,7 @@
 ---
 title: "Methodology"
+author: "Brice Nelson, PE, MBA"
+date: today
 ---
 
 # Methodology

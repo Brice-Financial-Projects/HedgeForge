@@ -1,5 +1,7 @@
 ---
 title: "Risk Metrics"
+author: "Brice Nelson, PE, MBA"
+date: today
 ---
 
 # Risk-Metrics
