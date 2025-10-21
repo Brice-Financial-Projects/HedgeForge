@@ -1,5 +1,6 @@
 # Project Structure
 
+```mermaid
 hedge_forge/
 │
 ├── internal_docs/                 # Informal or working documentation (Markdown)
@@ -57,3 +58,4 @@ hedge_forge/
 ├── requirements.txt              # pip fallback for non-conda users
 ├── README.md                     # Project overview and usage instructions
 └── .gitignore                    # Exclude data, logs, virtualenvs, etc.
+``` 

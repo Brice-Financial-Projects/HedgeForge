@@ -169,7 +169,7 @@ Download and install Quarto from:
 From your terminal:
 
 ```bash
-cd hedge_forge/docs
+cd hedge_forge/quarto
 ```
 
 ---
