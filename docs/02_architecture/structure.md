@@ -3,59 +3,103 @@
 ```mermaid
 hedge_forge/
 │
-├── internal_docs/                 # Informal or working documentation (Markdown)
-│   ├── structure.md               # Project structure overview (like this!)
-│   ├── roadmap.md                 # Features, timeline, stretch goals
-│   ├── modeling_notes.md          # Math, formula derivations, drafts
-│   └── references.md              # Links, citations, papers, articles
+├── quarto/                            # Public-facing Quarto documentation for reports and presentation
+│   ├── index.qmd                      # Executive summary of the project
+│   ├── methodology.qmd                # Mathematical methods and model assumptions
+│   ├── data_pipeline.qmd              # Data ingestion and transformation pipeline
+│   ├── results.qmd                    # Backtest results and performance charts
+│   ├── appendix.qmd                   # Additional derivations and technical notes
+│   └── _quarto.yml                    # Quarto site configuration file
 │
-├── data/                          # Raw and processed data (CSV, Parquet, etc.)
-│   ├── raw/                       # Unmodified source data
-│   └── processed/                 # Cleaned datasets ready for modeling
+├── docs/                              # Internal developer documentation and technical notes
+│   ├── 00_overview/                   # High-level summaries and architecture context
+│   │   ├── project_overview.md        # Overall description and goals of HedgeForge
+│   │   ├── architecture_summary.md    # Summary of the core system and src structure
+│   │   ├── design_philosophy.md       # Explanation of manual rebuild and design mindset
+│   │   ├── structure_map_legacy.md    # Legacy structure reference for comparison
+│   │   ├── project_overview_README_ref.md # Condensed executive overview used in README
+│   │   └── _index.md                  # Optional local index for overview documents
+│   │
+│   ├── 01_planning/                   # Roadmaps, goals, and planning documentation
+│   │   ├── roadmap.md                 # Development phases and overall roadmap
+│   │   ├── milestones.md              # Key deliverables and progress checkpoints
+│   │   ├── feature_tracking.md        # Table tracking features and implementation status
+│   │   └── glossary.md                # Definitions of core financial and technical terms
+│   │
+│   ├── 02_architecture/               # Technical system architecture and data flow
+│   │   ├── system_diagram.md          # Visual or textual system architecture diagram
+│   │   ├── data_flow.md               # Description of end-to-end data movement
+│   │   ├── config_strategy.md         # Overview of configuration management approach
+│   │   ├── deployment_topology.md     # Deployment and hosting architecture on AWS
+│   │   └── module_dependency_map.md   # Relationships between modules in src/
+│   │
+│   ├── 03_modeling/                   # Quantitative and mathematical model documentation
+│   │   ├── math_foundations.md        # Core equations and mathematical derivations
+│   │   ├── risk_metrics.md            # Explanation of VaR, CVaR, Sharpe, and related measures
+│   │   ├── optimization_algorithms.md # Portfolio optimization techniques and objectives
+│   │   ├── forecasting_models.md      # Forecasting methods and predictive model notes
+│   │   └── backtesting_framework.md   # Rolling tests, evaluation, and benchmark comparisons
+│   │
+│   ├── 04_engineering/                # Software engineering and DevOps documentation
+│   │   ├── coding_standards.md        # Naming, typing, and formatting conventions
+│   │   ├── testing_strategy.md        # Unit test structure and coverage approach
+│   │   ├── logging_and_monitoring.md  # Logging design and runtime monitoring details
+│   │   ├── performance_and_scalability.md # Performance tuning and scalability notes
+│   │   └── ci_cd_pipeline.md          # CI/CD pipeline structure and GitHub Actions overview
+│   │
+│   ├── 05_dev_notes/                  # Active development notes and ongoing logs
+│   │   ├── diary_logs/                # Day-by-day or topic-specific developer logs
+│   │   │   ├── 01_setup.md            # Environment setup notes
+│   │   │   ├── 02_data_pipeline_dev.md# Development log for data pipeline
+│   │   │   ├── 03_optimizer_dev.md    # Development log for optimization module
+│   │   │   └── 04_backtesting_dev.md  # Development log for backtesting features
+│   │   ├── scratchpad.md              # General notepad for quick ideas or code snippets
+│   │   └── experiments.md             # Notes on modeling experiments or parameter tuning
+│   │
+│   └── 06_references/                 # Research papers, citations, and formula references
+│       ├── papers_and_links.md        # List of related papers, articles, and links
+│       ├── bibliography.bib           # BibTeX reference file for Quarto or citations
+│       ├── formula_reference.md       # Quick reference for all mathematical formulas
+│       └── resources.md               # Additional reference materials and external tools
 │
-├── notebooks/                     # Exploratory work (EDA, prototype modeling)
-│   ├── 01_eda.ipynb
-│   ├── 02_simulation_tests.ipynb
-│   └── 03_optimization_tests.ipynb
+├── src/                               # Core Python package source code
+│   ├── __init__.py                    # Package initializer for hedge_forge
+│   ├── optimizer.py                   # Portfolio optimization algorithms and solvers
+│   ├── constraints.py                 # Constraint validation and enforcement logic
+│   ├── risk.py                        # Risk metric calculations and analytics
+│   ├── forecasting.py                 # Return forecasting and statistical modeling
+│   ├── backtest.py                    # Rolling backtesting and performance evaluation
+│   └── utils.py                       # Helper functions for data and math operations
 │
-├── app/                           # Optional frontend (Streamlit, Dash)
-│   └── main.py
+├── data/                              # Local storage for input and output data
+│   ├── raw/                           # Unmodified source data files
+│   └── processed/                     # Cleaned and transformed datasets
 │
-├── src/                           # Core package logic (modular and importable)
-│   ├── __init__.py
-│   ├── optimizer.py               # Portfolio optimization algorithms
-│   ├── constraints.py             # Constraint handling and validation
-│   ├── risk.py                    # Risk metrics (VaR, CVaR, volatility, etc.)
-│   ├── forecasting.py             # Return forecasting (ML or statistical models)
-│   ├── backtest.py                # Rolling backtests, evaluation metrics
-│   └── utils.py                   # Data loading, transformation helpers
+├── notebooks/                         # Jupyter notebooks for exploratory and prototype work
+│   ├── 01_eda.ipynb                   # Exploratory data analysis notebook
+│   ├── 02_simulation_tests.ipynb      # Monte Carlo and stochastic simulation experiments
+│   └── 03_optimization_tests.ipynb    # Portfolio optimization and validation tests
 │
-├── tests/                         # Unit tests for src modules
-│   ├── test_optimizer.py
-│   ├── test_risk.py
-│   └── ...
+├── app/                               # Optional visualization or demo layer
+│   └── main.py                        # Streamlit or Dash application entry point
 │
-├── docs/                          # Project documentation via Quarto
-│   ├── index.qmd                  # Executive summary / overview
-│   ├── methodology.qmd            # Stochastic modeling, math background
-│   ├── data_pipeline.qmd
-│   ├── eda.qmd
-│   ├── optimization_results.qmd   # Output, charts, interpretations
-│   ├── risk_metrics.qmd
-│   ├── appendix.qmd               # Extra formulas, derivations, notes
-│   └── _quarto.yml
+├── scripts/                           # Utility and orchestration scripts
+│   └── run_pipeline.py                # Script to execute the full modeling pipeline
 │
-├── config/                        # Configuration files for pipeline
-│   └── settings.yaml              # Model parameters, toggles, etc.
+├── tests/                             # Automated test suite for all modules
+│   ├── test_optimizer.py              # Unit tests for optimization algorithms
+│   ├── test_risk.py                   # Unit tests for risk metrics
+│   └── ...                            # Additional module tests
 │
-├── logs/                          # Logging output for debugging / pipeline monitoring
-│   └── hedgeforge.log
+├── config/                            # Configuration files and runtime settings
+│   └── settings.yaml                  # Main configuration for model parameters
 │
-├── scripts/                       # Optional CLI / orchestration scripts
-│   └── run_pipeline.py            # Entrypoint to run full modeling pipeline
+├── logs/                              # Runtime logs and debug outputs
+│   └── hedgeforge.log                 # Application log file
 │
-├── environment.yml               # Conda environment definition (recommended)
-├── requirements.txt              # pip fallback for non-conda users
-├── README.md                     # Project overview and usage instructions
-└── .gitignore                    # Exclude data, logs, virtualenvs, etc.
+├── environment.yml                    # Conda environment definition
+├── requirements.txt                   # pip-compatible dependencies list
+├── README.md                          # Top-level project README
+└── .gitignore                         # Git ignore file for virtualenvs, data, and logs
+
 ``` 
