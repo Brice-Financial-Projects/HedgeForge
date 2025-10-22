@@ -1,0 +1,19 @@
+# config/settings.yaml
+
+app:
+  name: hedgeforge
+  environment: ${HEDGEFORGE_ENV}
+
+database:
+  port: ${DB_PORT}
+  name: ${DB_NAME}
+  password: ${DB_PASSWORD}
+  host: localhost
+  uri: postgresql+psycopg2://${DB_USER}:${DB_PASSWORD}@localhost:${DB_PORT}/${DB_NAME}
+
+logging:
+  log_dir: logs
+  log_file: hedgeforge.log
+  level: INFO
+  max_bytes: 5000000
+  backup_count: 5

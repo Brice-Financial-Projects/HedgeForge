@@ -64,11 +64,13 @@ hedge_forge/
 │
 ├── src/                               # Core Python package source code
 │   ├── __init__.py                    # Package initializer for hedge_forge
+│   ├── config_loader.py               # loads YAML + environment overrides
 │   ├── optimizer.py                   # Portfolio optimization algorithms and solvers
 │   ├── constraints.py                 # Constraint validation and enforcement logic
 │   ├── risk.py                        # Risk metric calculations and analytics
 │   ├── forecasting.py                 # Return forecasting and statistical modeling
 │   ├── backtest.py                    # Rolling backtesting and performance evaluation
+│   ├── logger.py                      # Helper function for logging errors and debugging data
 │   └── utils.py                       # Helper functions for data and math operations
 │
 ├── data/                              # Local storage for input and output data
@@ -92,11 +94,27 @@ hedge_forge/
 │   └── ...                            # Additional module tests
 │
 ├── config/                            # Configuration files and runtime settings
-│   └── settings.yaml                  # Main configuration for model parameters
+│   ├── settings.yaml                  # Base config (universal defaults)
+│   ├── settings.windows.yaml          # Local dev on Windows
+│   ├── settings.linux.yaml            # WSL2, Docker, or Linux dev
+│   └──  settings.aws.yaml             # Production / AWS deployment 
 │
 ├── logs/                              # Runtime logs and debug outputs
 │   └── hedgeforge.log                 # Application log file
 │
+├── .github
+│   └── workflows
+│       ├── ci_cd.yaml                 # pytest pipeline tests
+│       ├── pre_commit.yaml            # precommit github actions
+│
+├── main.py
+├── pyproject.toml                     # Python project metadata and build configuration
+├── uv.lock                            # UV lockfile for reproducible environments
+├── .python-version                    # Python version for local dev and CI/CD
+├── .dockerignore                      # Docker ignore file for local dev and CI/CD
+├── .docker-compose.yml                # Docker Compose file for local dev and CI/CD
+├── .pre-commit-config.yaml            # Pre-commit configuration file for local dev and CI/CD
+├── .env                               # shared across all environments
 ├── environment.yml                    # Conda environment definition
 ├── requirements.txt                   # pip-compatible dependencies list
 ├── README.md                          # Top-level project README

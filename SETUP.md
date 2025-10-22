@@ -160,7 +160,7 @@ The pipeline generates several output files in `data/processed/`:
 Replace sample data with real market data:
 
 ```python
-from src.utils import load_market_data
+from src.logger import load_market_data
 
 # Load your CSV file with price data
 prices = load_market_data('data/raw/your_market_data.csv')

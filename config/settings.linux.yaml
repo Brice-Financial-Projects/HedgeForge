@@ -1,0 +1,5 @@
+# config/settings.linux.yaml
+
+database:
+  user: ${LIN_DB_USER}
+  host: localhost

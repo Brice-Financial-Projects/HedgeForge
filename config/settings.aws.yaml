@@ -1,0 +1,6 @@
+# config/settings.aws.yaml
+
+database:
+  host: hedgeforge-prod.c9vxf.aws.com
+  user: ${AWS_DB_USER}
+  password: ${AWS_DB_PASSWORD}

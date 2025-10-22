@@ -1,0 +1,5 @@
+# config/settings.windows.yaml
+
+database:
+  user: ${WIN_DB_USER}
+  host: localhost
