@@ -40,14 +40,62 @@ This project is designed with modularity, transparency, and future extensibility
 ```plaintext
 hedge_forge/
 │
-├── internal_docs/                 # Informal or working documentation (Markdown)
-│   ├── structure.md               # Project structure overview (like this!)
-│   ├── roadmap.md                 # Features, timeline, stretch goals
-│   ├── modeling_notes.md          # Math, formula derivations, drafts
-│   └── references.md              # Links, citations, papers, articles
+├── .github/                      # GitHub Actions workflows
+│   └── workflows/                
+│       ├── ci-cd.yaml
+│       └── smoke.yaml             
+│
+├── docs/                              # Project documentation (Quarto site)
+│   │
+│   ├── 00_overview/
+│   │   ├── project_overview.md
+│   │   ├── project_overview_README.md
+│   │   └── summary_outline.md
+│   │
+│   ├── 01_planning/
+│   │   ├── planning_roadmap_checklist.md
+│   │   ├── roadmap.md
+│   │   └── phase_plan_logical.md
+│   │
+│   ├── 02_architecture/
+│   │   ├── structure.md
+│   │   ├── docs_structure.md
+│   │   ├── system_design.md
+│   │   └── api_endpoints.md
+│   │
+│   ├── 03_modeling/
+│   │   ├── modeling_notes.md
+│   │   ├── outline.md
+│   │   └── formulas_appendix.md
+│   │
+│   ├── 04_engineering/
+│   │   ├── ci_cd_pipeline.md
+│   │   ├── deployment_notes.md
+│   │   └── environment_setup.md
+│   │
+│   ├── 05_dev_notes/
+│   │   ├── diary_logs/
+│   │   │   ├── 2025_10_devlog.md
+│   │   │   ├── ci_cd_progress.md
+│   │   │   └── monte_carlo_experiments.md
+│   │   └── dev_summary.md
+│   │
+│   ├── 06_references/
+│   │   ├── references.md
+│   │   ├── papers.md
+│   │   └── citations.bib
+│   │
+│   └── archive/
+│       └── 20250821/
+│           ├── modeling_notes.md
+│           ├── outline.md
+│           ├── phase_1_2_logical_plan.md
+│           ├── project_overview_scope.md
+│           └── roadmap.md
 │
 ├── data/                          # Raw and processed data (CSV, Parquet, etc.)
-│   ├── raw/                       # Unmodified source data
+│   ├── raw/                       # Unmodified source 
+│   │   └── synthetic/
 │   └── processed/                 # Cleaned datasets ready for modeling
 │
 ├── notebooks/                     # Exploratory work (EDA, prototype modeling)
@@ -59,27 +107,36 @@ hedge_forge/
 │   └── main.py
 │
 ├── src/                           # Core package logic (modular and importable)
-│   ├── __init__.py
-│   ├── optimizer.py               # Portfolio optimization algorithms
-│   ├── constraints.py             # Constraint handling and validation
-│   ├── risk.py                    # Risk metrics (VaR, CVaR, volatility, etc.)
-│   ├── forecasting.py             # Return forecasting (ML or statistical models)
-│   ├── backtest.py                # Rolling backtests, evaluation metrics
-│   └── utils.py                   # Data loading, transformation helpers
+│   └── hedgeforge/                # Core modules
+│       ├── __init__.py
+│       ├── optimization/
+│       │   ├── __init__.py
+│       │   ├── markowitz.py        # Mean-variance optimization
+│       │   ├── black_litterman.py  # Black-Litterman model
+│       │   └── cvar_min.py         # Conditional VaR minimization
+│       ├── risk/                   # Risk Modeling and stochastic simulation
+│       │   ├── __init__.py
+│       │   ├── metrics.py          # Volatility, VaR, CVaR, Sharpe, etc.
+│       │   └── monte_carlo.py      # Monte Carlo path simulation engine
+│       ├── backtests/              # Logic for testing models
+│       │   ├── __init__.py
+│       │   └── rolling_window.py   
+│       └── utils/                  # Data loading, transformation helpers
 │
-├── tests/                         # Unit tests for src modules
+├── tests/                          # Unit tests for src modules
 │   ├── test_optimizer.py
 │   ├── test_risk.py
 │   └── ...
 │
 ├── docs/                          # Project documentation via Quarto
 │   ├── index.qmd                  # Executive summary / overview
-│   ├── methodology.qmd           # Stochastic modeling, math background
-│   ├── results.qmd               # Output, charts, interpretations
-│   └── appendix.qmd              # Extra formulas, derivations, notes
+│   ├── methodology.qmd            # Stochastic modeling, math background
+│   ├── results.qmd                # Output, charts, interpretations
+│   └── appendix.qmd               # Extra formulas, derivations, notes
 │
 ├── config/                        # Configuration files for pipeline
-│   └── settings.yaml              # Model parameters, toggles, etc.
+│   ├── settings.yaml              # Model parameters, toggles, etc.
+│   └── logging.yaml               # Logging settings
 │
 ├── logs/                          # Logging output for debugging / pipeline monitoring
 │   └── hedgeforge.log
@@ -87,6 +144,7 @@ hedge_forge/
 ├── scripts/                       # Optional CLI / orchestration scripts
 │   └── run_pipeline.py            # Entrypoint to run full modeling pipeline
 │
+├── pyproject.toml                # Python project metadata (PEP 621)
 ├── environment.yml               # Conda environment definition (recommended)
 ├── requirements.txt              # pip fallback for non-conda users
 ├── README.md                     # Project overview and usage instructions
