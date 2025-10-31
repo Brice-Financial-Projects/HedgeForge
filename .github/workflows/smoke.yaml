@@ -1,0 +1,33 @@
+name: Smoke Test
+
+on:
+  push:
+    branches: [dev]
+  pull_request:
+    branches: [dev]
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install core dependencies
+        run: |
+          pip install uv
+          uv pip install -e .[dev] pytest
+
+      - name: Verify package import
+        run: |
+          python -c "import hedge_forge; print('✅ hedge_forge imported successfully')"
+
+      - name: Run smoke tests (fast only)
+        run: |
+          pytest tests/unit_tests -q --disable-warnings --maxfail=1
