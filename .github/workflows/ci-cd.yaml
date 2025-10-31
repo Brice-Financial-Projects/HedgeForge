@@ -2,9 +2,9 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [main, dev, dev_no_ai]
+    branches: [main, dev]
   pull_request:
-    branches: [main, dev, dev_no_ai]
+    branches: [main, dev]
 
 jobs:
   build-test:
@@ -12,38 +12,31 @@ jobs:
 
     strategy:
       matrix:
-        python-version: [3.11]
+        python-version: ['>=3.11']
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Install dependencies (uv preferred, fallback to pip)
+      - name: Install uv
+        run: pip install uv==0.9.7
+
+      - name: Sync environment with uv
         run: |
-          if [ -f "pyproject.toml" ]; then
-            pip install uv
-            uv pip install -e .[dev] --system
-          elif [ -f "environment.yml" ]; then
-            conda env update --file environment.yml --name base
-          else
-            pip install -r requirements.txt
-          fi
-      
+          uv sync --all-extras --frozen
+          uv run python --version
+          uv run which python
 
       - name: Lint with Ruff
-        run: |
-          pip install ruff
-          ruff check src tests
+        run: uv run ruff check src tests
 
       - name: Run tests with pytest
-        run: |
-          pip install pytest pytest-cov
-          pytest --maxfail=1 --disable-warnings --cov=src --cov-report=xml
+        run: uv run pytest --maxfail=1 --disable-warnings --cov=src --cov-report=xml
 
       - name: Upload coverage report
         uses: codecov/codecov-action@v4
@@ -65,12 +58,12 @@ jobs:
       - name: Install Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Render Quarto site
+      - name: Render Quarto documentation
         run: |
-          quarto render docs/ --to html
+          quarto render quarto/ --to html
 
-      - name: Deploy docs to GitHub Pages
+      - name: Deploy Quarto site to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/_site
+          publish_dir: ./quarto/_site
