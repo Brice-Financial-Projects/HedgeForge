@@ -19,10 +19,17 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install core dependencies
+      - name: Install dependencies (uv preferred, fallback to pip)
         run: |
-          pip install uv
-          uv pip install -e .[dev] pytest
+          if [ -f "pyproject.toml" ]; then
+            pip install uv==0.9.7
+            uv pip install -e .[dev] --system
+          elif [ -f "environment.yml" ]; then
+            conda env update --file environment.yml --name base
+          else
+            pip install -r requirements.txt
+          fi
+      
 
       - name: Verify package import
         run: |
