@@ -14,27 +14,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      # 🐍 Match local environment
+      - name: Set up Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '>=3.11'
+          python-version: "3.12"
 
-      - name: Install dependencies (uv preferred, fallback to pip)
+      # 🧰 Install uv and restore environment
+      - name: Install uv and sync dependencies
         run: |
-          if [ -f "pyproject.toml" ]; then
-            pip install uv==0.9.7
-            uv pip install -e .[dev] --system
-          elif [ -f "environment.yml" ]; then
-            conda env update --file environment.yml --name base
-          else
-            pip install -r requirements.txt
-          fi
-      
+          pip install uv==0.9.7
+          uv sync --frozen --all-extras
+          uv run python --version
 
-      - name: Verify package import
+      # ✅ Minimal smoke test (unit tests only)
+      - name: Run smoke tests
         run: |
-          python -c "import hedge_forge; print('✅ hedge_forge imported successfully')"
-
-      - name: Run smoke tests (fast only)
-        run: |
-          pytest tests/unit_tests -q --disable-warnings --maxfail=1
+          uv run pytest tests/unit_tests -q --disable-warnings --maxfail=1
