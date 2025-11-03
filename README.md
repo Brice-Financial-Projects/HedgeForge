@@ -1,12 +1,34 @@
 # 📈 HedgeForge: Portfolio Risk Modeling Engine (In Progress)
+
+<p align="left">
+  <!-- Project Status -->
+  <img src="https://img.shields.io/badge/status-in_progress-orange?style=flat-square" alt="Project Status">
+  
+  <!-- Python Version -->
+  <img src="https://img.shields.io/badge/python-3.10%2B-blue?style=flat-square" alt="Python Version">
+  
+  <!-- Build Status -->
+  <img src="https://img.shields.io/badge/build-passing-brightgreen?style=flat-square" alt="Build Status">
+  
+  <!-- Documentation -->
+  <img src="https://img.shields.io/badge/docs-Quarto-success?style=flat-square" alt="Documentation">
+  
+  <!-- License -->
+  <img src="https://img.shields.io/badge/license-review_only-lightgrey?style=flat-square" alt="License">
+  
+  <!-- Last Updated -->
+  <img src="https://img.shields.io/badge/last%20updated-November%202025-informational?style=flat-square" alt="Last Updated">
+</p>
+
 ---
 
-title: "HedgeForge: Portfolio Risk Modeling Engine"<br>
-description: "A Python-based quantitative finance project for simulating and optimizing portfolio strategies using Monte Carlo simulations, stochastic processes, and risk analytics. Ideal for roles in ALM, ESG modeling, and institutional finance."<br>
-author: "Brice A. Nelson"<br>
-tags: ["quantitative finance", "portfolio optimization", "monte carlo", "asset-liability management", "ESG modeling", "python", "risk analytics", "financial modeling"]<br>
-canonical_url: "https://github.com/Brice-Financial-Projects/HedgeForge"<br>
-robots: index,follow<br>
+A Python-based quantitative finance project for simulating and optimizing portfolio strategies using **Monte Carlo simulations**, **stochastic processes**, and **risk analytics**.  
+Ideal for roles in **Asset-Liability Management (ALM)**, **ESG modeling**, and **institutional finance**.
+
+**Author:** Brice A. Nelson  
+**Tags:** quantitative finance, portfolio optimization, Monte Carlo, asset-liability management, ESG modeling, Python, risk analytics, financial modeling  
+**Repository:** [github.com/Brice-Financial-Projects/HedgeForge](https://github.com/Brice-Financial-Projects/HedgeForge)
+
 
 ---
 
@@ -174,6 +196,17 @@ hedge_forge/
 
 - 📓 **Reproducible Docs with Quarto**  
   Full methodology, code explanations, charts, and results.
+
+---
+
+## 🧮 Stochastic Market Simulation
+
+HedgeForge incorporates **stochastic modeling** techniques to realistically simulate market dynamics and evaluate portfolio risk under uncertainty. Using mathematical processes such as **Geometric Brownian Motion (GBM)** and the **Ornstein–Uhlenbeck (OU)** process, the system models both **trend-following** and **mean-reverting** behaviors observed in financial markets.
+
+- **Geometric Brownian Motion (GBM)** captures multiplicative price evolution typical of equities and ETFs, where drift and volatility drive log-normal price distributions.  
+- **Ornstein–Uhlenbeck (OU)** dynamics are applied to simulate mean-reverting variables such as interest rates, volatility levels, or asset spreads—useful for stress-testing strategies that depend on market equilibrium.
+
+Through **Monte Carlo simulation**, HedgeForge generates thousands of potential future paths for asset prices and portfolio values. These simulated trajectories feed into the platform’s risk engine, enabling robust estimation of **Value-at-Risk (VaR)**, **Expected Shortfall**, and scenario-based performance metrics. This approach bridges quantitative finance and statistical modeling, providing a foundation for data-driven portfolio optimization and stress testing.
 
 ---
 
