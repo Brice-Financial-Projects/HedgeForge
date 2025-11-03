@@ -1,12 +1,34 @@
 # 📈 HedgeForge: Portfolio Risk Modeling Engine (In Progress)
+
+<p align="left">
+  <!-- Project Status -->
+  <img src="https://img.shields.io/badge/status-in_progress-orange?style=flat-square" alt="Project Status">
+  
+  <!-- Python Version -->
+  <img src="https://img.shields.io/badge/python-3.10%2B-blue?style=flat-square" alt="Python Version">
+  
+  <!-- Build Status -->
+  <img src="https://img.shields.io/badge/build-passing-brightgreen?style=flat-square" alt="Build Status">
+  
+  <!-- Documentation -->
+  <img src="https://img.shields.io/badge/docs-Quarto-success?style=flat-square" alt="Documentation">
+  
+  <!-- License -->
+  <img src="https://img.shields.io/badge/license-review_only-lightgrey?style=flat-square" alt="License">
+  
+  <!-- Last Updated -->
+  <img src="https://img.shields.io/badge/last%20updated-November%202025-informational?style=flat-square" alt="Last Updated">
+</p>
+
 ---
 
-title: "HedgeForge: Portfolio Risk Modeling Engine"<br>
-description: "A Python-based quantitative finance project for simulating and optimizing portfolio strategies using Monte Carlo simulations, stochastic processes, and risk analytics. Ideal for roles in ALM, ESG modeling, and institutional finance."<br>
-author: "Brice A. Nelson"<br>
-tags: ["quantitative finance", "portfolio optimization", "monte carlo", "asset-liability management", "ESG modeling", "python", "risk analytics", "financial modeling"]<br>
-canonical_url: "https://github.com/Brice-Financial-Projects/HedgeForge"<br>
-robots: index,follow<br>
+A Python-based quantitative finance project for simulating and optimizing portfolio strategies using **Monte Carlo simulations**, **stochastic processes**, and **risk analytics**.  
+Ideal for roles in **Asset-Liability Management (ALM)**, **ESG modeling**, and **institutional finance**.
+
+**Author:** Brice A. Nelson  
+**Tags:** quantitative finance, portfolio optimization, Monte Carlo, asset-liability management, ESG modeling, Python, risk analytics, financial modeling  
+**Repository:** [github.com/Brice-Financial-Projects/HedgeForge](https://github.com/Brice-Financial-Projects/HedgeForge)
+
 
 ---
 
@@ -40,14 +62,62 @@ This project is designed with modularity, transparency, and future extensibility
 ```plaintext
 hedge_forge/
 │
-├── internal_docs/                 # Informal or working documentation (Markdown)
-│   ├── structure.md               # Project structure overview (like this!)
-│   ├── roadmap.md                 # Features, timeline, stretch goals
-│   ├── modeling_notes.md          # Math, formula derivations, drafts
-│   └── references.md              # Links, citations, papers, articles
+├── .github/                      # GitHub Actions workflows
+│   └── workflows/                
+│       ├── ci-cd.yaml
+│       └── smoke.yaml             
+│
+├── docs/                              # Project documentation (Quarto site)
+│   │
+│   ├── 00_overview/
+│   │   ├── project_overview.md
+│   │   ├── project_overview_README.md
+│   │   └── summary_outline.md
+│   │
+│   ├── 01_planning/
+│   │   ├── planning_roadmap_checklist.md
+│   │   ├── roadmap.md
+│   │   └── phase_plan_logical.md
+│   │
+│   ├── 02_architecture/
+│   │   ├── structure.md
+│   │   ├── docs_structure.md
+│   │   ├── system_design.md
+│   │   └── api_endpoints.md
+│   │
+│   ├── 03_modeling/
+│   │   ├── modeling_notes.md
+│   │   ├── outline.md
+│   │   └── formulas_appendix.md
+│   │
+│   ├── 04_engineering/
+│   │   ├── ci_cd_pipeline.md
+│   │   ├── deployment_notes.md
+│   │   └── environment_setup.md
+│   │
+│   ├── 05_dev_notes/
+│   │   ├── diary_logs/
+│   │   │   ├── 2025_10_devlog.md
+│   │   │   ├── ci_cd_progress.md
+│   │   │   └── monte_carlo_experiments.md
+│   │   └── dev_summary.md
+│   │
+│   ├── 06_references/
+│   │   ├── references.md
+│   │   ├── papers.md
+│   │   └── citations.bib
+│   │
+│   └── archive/
+│       └── 20250821/
+│           ├── modeling_notes.md
+│           ├── outline.md
+│           ├── phase_1_2_logical_plan.md
+│           ├── project_overview_scope.md
+│           └── roadmap.md
 │
 ├── data/                          # Raw and processed data (CSV, Parquet, etc.)
-│   ├── raw/                       # Unmodified source data
+│   ├── raw/                       # Unmodified source 
+│   │   └── synthetic/
 │   └── processed/                 # Cleaned datasets ready for modeling
 │
 ├── notebooks/                     # Exploratory work (EDA, prototype modeling)
@@ -59,27 +129,36 @@ hedge_forge/
 │   └── main.py
 │
 ├── src/                           # Core package logic (modular and importable)
-│   ├── __init__.py
-│   ├── optimizer.py               # Portfolio optimization algorithms
-│   ├── constraints.py             # Constraint handling and validation
-│   ├── risk.py                    # Risk metrics (VaR, CVaR, volatility, etc.)
-│   ├── forecasting.py             # Return forecasting (ML or statistical models)
-│   ├── backtest.py                # Rolling backtests, evaluation metrics
-│   └── utils.py                   # Data loading, transformation helpers
+│   └── hedgeforge/                # Core modules
+│       ├── __init__.py
+│       ├── optimization/
+│       │   ├── __init__.py
+│       │   ├── markowitz.py        # Mean-variance optimization
+│       │   ├── black_litterman.py  # Black-Litterman model
+│       │   └── cvar_min.py         # Conditional VaR minimization
+│       ├── risk/                   # Risk Modeling and stochastic simulation
+│       │   ├── __init__.py
+│       │   ├── metrics.py          # Volatility, VaR, CVaR, Sharpe, etc.
+│       │   └── monte_carlo.py      # Monte Carlo path simulation engine
+│       ├── backtests/              # Logic for testing models
+│       │   ├── __init__.py
+│       │   └── rolling_window.py   
+│       └── utils/                  # Data loading, transformation helpers
 │
-├── tests/                         # Unit tests for src modules
+├── tests/                          # Unit tests for src modules
 │   ├── test_optimizer.py
 │   ├── test_risk.py
 │   └── ...
 │
 ├── docs/                          # Project documentation via Quarto
 │   ├── index.qmd                  # Executive summary / overview
-│   ├── methodology.qmd           # Stochastic modeling, math background
-│   ├── results.qmd               # Output, charts, interpretations
-│   └── appendix.qmd              # Extra formulas, derivations, notes
+│   ├── methodology.qmd            # Stochastic modeling, math background
+│   ├── results.qmd                # Output, charts, interpretations
+│   └── appendix.qmd               # Extra formulas, derivations, notes
 │
 ├── config/                        # Configuration files for pipeline
-│   └── settings.yaml              # Model parameters, toggles, etc.
+│   ├── settings.yaml              # Model parameters, toggles, etc.
+│   └── logging.yaml               # Logging settings
 │
 ├── logs/                          # Logging output for debugging / pipeline monitoring
 │   └── hedgeforge.log
@@ -87,6 +166,7 @@ hedge_forge/
 ├── scripts/                       # Optional CLI / orchestration scripts
 │   └── run_pipeline.py            # Entrypoint to run full modeling pipeline
 │
+├── pyproject.toml                # Python project metadata (PEP 621)
 ├── environment.yml               # Conda environment definition (recommended)
 ├── requirements.txt              # pip fallback for non-conda users
 ├── README.md                     # Project overview and usage instructions
@@ -116,6 +196,17 @@ hedge_forge/
 
 - 📓 **Reproducible Docs with Quarto**  
   Full methodology, code explanations, charts, and results.
+
+---
+
+## 🧮 Stochastic Market Simulation
+
+HedgeForge incorporates **stochastic modeling** techniques to realistically simulate market dynamics and evaluate portfolio risk under uncertainty. Using mathematical processes such as **Geometric Brownian Motion (GBM)** and the **Ornstein–Uhlenbeck (OU)** process, the system models both **trend-following** and **mean-reverting** behaviors observed in financial markets.
+
+- **Geometric Brownian Motion (GBM)** captures multiplicative price evolution typical of equities and ETFs, where drift and volatility drive log-normal price distributions.  
+- **Ornstein–Uhlenbeck (OU)** dynamics are applied to simulate mean-reverting variables such as interest rates, volatility levels, or asset spreads—useful for stress-testing strategies that depend on market equilibrium.
+
+Through **Monte Carlo simulation**, HedgeForge generates thousands of potential future paths for asset prices and portfolio values. These simulated trajectories feed into the platform’s risk engine, enabling robust estimation of **Value-at-Risk (VaR)**, **Expected Shortfall**, and scenario-based performance metrics. This approach bridges quantitative finance and statistical modeling, providing a foundation for data-driven portfolio optimization and stress testing.
 
 ---
 

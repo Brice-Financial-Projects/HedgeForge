@@ -9,12 +9,12 @@ A structured, high-level plan for manually rebuilding HedgeForge with clarity, d
 
 - [X] Verify and finalize project folder structure (`src/`, `docs/`, `quarto/`, etc.)
 - [X] Create and activate Conda/uv environment  
-  - [ ] Confirm imports (`python -m src.utils`)
-- [X] Implement basic `src/__init__.py`
-- [ ] Add centralized logging setup in `src/utils.py`
-- [ ] Configure **pytest** and add one dummy test in `/tests`
-- [ ] Create `.pre-commit-config.yaml`  
-  - [ ] Include Ruff, Black, isort, and YAML/JSON linting hooks
+  - [X] Confirm imports (`hedge_forge`)
+- [X] Implement basic `src/hedge_forge/__init__.py`
+- [X] Add centralized logging setup in `src/hedge_forge/utils/logger.py`
+- [X] Configure **pytest** and add one dummy test in `/tests`
+- [X] Create `.pre-commit-config.yaml`  
+  - [X] Include Ruff, Black, isort, and YAML/JSON linting hooks
 - [ ] Configure **GitHub Actions CI pipeline**  
   - [ ] Lint → Test → Build stages
   - [ ] Cache dependencies for faster runs

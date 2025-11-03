@@ -1,6 +1,6 @@
 # Project Structure
 
-```mermaid
+```plaintext
 hedge_forge/
 │
 ├── quarto/                            # Public-facing Quarto documentation for reports and presentation
@@ -63,15 +63,42 @@ hedge_forge/
 │       └── resources.md               # Additional reference materials and external tools
 │
 ├── src/                               # Core Python package source code
-│   ├── __init__.py                    # Package initializer for hedge_forge
-│   ├── config_loader.py               # loads YAML + environment overrides
-│   ├── optimizer.py                   # Portfolio optimization algorithms and solvers
-│   ├── constraints.py                 # Constraint validation and enforcement logic
-│   ├── risk.py                        # Risk metric calculations and analytics
-│   ├── forecasting.py                 # Return forecasting and statistical modeling
-│   ├── backtest.py                    # Rolling backtesting and performance evaluation
-│   ├── logger.py                      # Helper function for logging errors and debugging data
-│   └── utils.py                       # Helper functions for data and math operations
+│   └── hedge_forge/                   # Main package namespace
+│       ├── __init__.py                # Makes hedge_forge a package
+│       │
+│       ├── backtests/                 # Backtesting engines and result analyzers
+│       │   ├── __init__.py
+│       │   ├── rolling_backtest.py    # Walk-forward and rolling window backtests
+│       │   ├── performance_metrics.py # Sharpe, Sortino, drawdowns, turnover
+│       │   └── benchmark_compare.py   # Benchmark-relative analytics and reporting
+│       │
+│       ├── optimization/              # Portfolio construction and optimization logic
+│       │   ├── __init__.py
+│       │   ├── mean_variance.py       # Classic Markowitz and efficient frontier solver
+│       │   ├── black_litterman.py     # Black-Litterman Bayesian blending model
+│       │   ├── cvar_minimization.py   # Conditional VaR (CVaR) optimization routines
+│       │   └── constraints.py         # Constraint definitions (sector caps, turnover, etc.)
+│       │
+│       ├── risk/                      # Risk modeling and statistical analytics
+│       │   ├── __init__.py
+│       │   ├── var_cvar.py            # Value-at-Risk and Conditional VaR calculations
+│       │   ├── volatility.py          # Rolling and annualized volatility computations
+│       │   ├── correlation.py         # Covariance and correlation matrix generation
+│       │   └── stress_tests.py        # Scenario and stress test simulation utilities
+│       │
+│       ├── utils/                     # Shared utility modules and helpers
+│       │   ├── __init__.py
+│       │   ├── config_loader.py       # YAML + environment variable configuration loader
+│       │   ├── logger.py              # Structured logging setup and configuration
+│       │   ├── file_io.py             # File load/save helpers for CSV, Parquet, etc.
+│       │   ├── math_tools.py          # Common math operations (vectorized helpers)
+│       │   └── decorators.py          # Timing, caching, and exception-handling decorators
+│       │
+│       └── forecasting/               # (Optional) predictive and ML-based forecasting models
+│           ├── __init__.py
+│           ├── regression_models.py   # Linear, Ridge, Lasso regression forecasters
+│           ├── ml_models.py           # Tree-based or ensemble forecasting models
+│           └── feature_engineering.py # Factor construction and lag feature utilities
 │
 ├── data/                              # Local storage for input and output data
 │   ├── raw/                           # Unmodified source data files
@@ -86,18 +113,38 @@ hedge_forge/
 │   └── main.py                        # Streamlit or Dash application entry point
 │
 ├── scripts/                           # Utility and orchestration scripts
-│   └── run_pipeline.py                # Script to execute the full modeling pipeline
+│   ├── run_pipeline.py                # Script to execute the full modeling pipeline
+│   └── seed_data.py                   # Populate synthetic or sample datasets
 │
 ├── tests/                             # Automated test suite for all modules
-│   ├── test_optimizer.py              # Unit tests for optimization algorithms
-│   ├── test_risk.py                   # Unit tests for risk metrics
-│   └── ...                            # Additional module tests
+│   ├── unit_tests/
+│   │   ├── test_utils.py
+│   │   ├── test_risk_metrics.py
+│   │   ├── test_optimizer_math.py
+│   │   └── test_logger_setup.py
+│   │
+│   ├── functional_tests/
+│   │   ├── test_constraints_validation.py
+│   │   ├── test_pipeline_steps.py
+│   │   └── test_data_io_roundtrip.py
+│   │
+│   ├── integration_tests/
+│   │   ├── test_data_pipeline.py
+│   │   ├── test_backtest_pipeline.py
+│   │   ├── test_api_endpoints.py
+│   │   └── test_forecasting_integration.py
+│   │
+│   └── stochastic_tests/              # Statistical and Monte Carlo validation tests
+│       ├── test_monte_carlo_var.py
+│       ├── test_risk_convergence.py
+│       ├── test_backtest_consistency.py
+│       └── test_forecasting_stability.py
 │
 ├── config/                            # Configuration files and runtime settings
 │   ├── settings.yaml                  # Base config (universal defaults)
 │   ├── settings.windows.yaml          # Local dev on Windows
 │   ├── settings.linux.yaml            # WSL2, Docker, or Linux dev
-│   └──  settings.aws.yaml             # Production / AWS deployment 
+│   └── settings.aws.yaml              # Production / AWS deployment 
 │
 ├── logs/                              # Runtime logs and debug outputs
 │   └── hedgeforge.log                 # Application log file
@@ -107,17 +154,16 @@ hedge_forge/
 │       ├── ci_cd.yaml                 # pytest pipeline tests
 │       ├── pre_commit.yaml            # precommit github actions
 │
-├── main.py
+├── main.py                            # Entry point for CLI or API execution
 ├── pyproject.toml                     # Python project metadata and build configuration
 ├── uv.lock                            # UV lockfile for reproducible environments
 ├── .python-version                    # Python version for local dev and CI/CD
 ├── .dockerignore                      # Docker ignore file for local dev and CI/CD
 ├── .docker-compose.yml                # Docker Compose file for local dev and CI/CD
 ├── .pre-commit-config.yaml            # Pre-commit configuration file for local dev and CI/CD
-├── .env                               # shared across all environments
+├── .env                               # Shared across all environments
 ├── environment.yml                    # Conda environment definition
 ├── requirements.txt                   # pip-compatible dependencies list
 ├── README.md                          # Top-level project README
 └── .gitignore                         # Git ignore file for virtualenvs, data, and logs
-
 ``` 
