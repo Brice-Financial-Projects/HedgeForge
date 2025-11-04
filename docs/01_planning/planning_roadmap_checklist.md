@@ -15,18 +15,18 @@ A structured, high-level plan for manually rebuilding HedgeForge with clarity, d
 - [X] Configure **pytest** and add one dummy test in `/tests`
 - [X] Create `.pre-commit-config.yaml`  
   - [X] Include Ruff, Black, isort, and YAML/JSON linting hooks
-- [ ] Configure **GitHub Actions CI pipeline**  
-  - [ ] Lint → Test → Build stages
+- [x] Configure **GitHub Actions CI pipeline**  
+  - [x] Lint → Test → Build stages
   - [ ] Cache dependencies for faster runs
-- [ ] Confirm logs write correctly to `/logs/hedgeforge.log`
+- [x] Confirm logs write correctly to `/logs/hedgeforge.log`
 
 ---
 
 ## 📊 Phase 2 — Data & Utility Layer
 **Goal:** Build robust data ingestion and preprocessing utilities.
 
-- [ ] Implement `load_data()`, `validate_data()`, and `compute_log_returns()` in `src/utils.py`
-- [ ] Add sample CSV files to `/data/raw/`
+- [x] Implement `load_data()`, `validate_data()`, and `compute_log_returns()` in `src/utils.py`
+- [x] Add sample CSV files to `/data/raw/`
 - [ ] Test pipeline read → clean → save to `/data/processed/`
 - [ ] Write one validation notebook (`notebooks/01_eda.ipynb`)
 - [ ] Log data-pipeline runs to `/logs/`
