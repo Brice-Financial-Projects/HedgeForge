@@ -1,9 +1,6 @@
-from src.hedge_forge.scripts.clean_currency_csvs import merge_currency_fields
-
-
 from pathlib import Path
 
-from src.hedge_forge.scripts.clean_currency_csvs import clean_csv
+from src.hedge_forge.scripts.clean_currency_csvs import clean_csv, merge_currency_fields
 
 
 def test_clean_csv_writes_to_processed_directory(tmp_path: Path) -> None:

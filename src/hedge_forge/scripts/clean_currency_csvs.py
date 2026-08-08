@@ -17,7 +17,6 @@ import csv
 import re
 from pathlib import Path
 
-
 CURRENCY_START = re.compile(r"^-?\$\d{1,3}(?:,\d{3})*(?:\.\d+)?$")
 CURRENCY_CONTINUATION = re.compile(r"^\d{3}(?:\.\d+)?$")
 NUMBER_START = re.compile(r"^-?\d+(?:\.\d+)?$")
@@ -34,10 +33,9 @@ def _should_merge(value: str, next_value: str) -> bool:
     if CURRENCY_START.fullmatch(value) and CURRENCY_CONTINUATION.fullmatch(next_value):
         return True
 
-    if NUMBER_START.fullmatch(value) and CURRENCY_CONTINUATION.fullmatch(next_value):
-        return True
-
-    return False
+    return bool(
+        NUMBER_START.fullmatch(value) and CURRENCY_CONTINUATION.fullmatch(next_value)
+    )
 
 
 def merge_currency_fields(parts: list[str]) -> list[str]:
