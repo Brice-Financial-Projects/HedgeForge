@@ -68,7 +68,8 @@ def clean_csv(file_path: Path) -> Path:
     """Clean malformed currency fields and write a validated CSV."""
     print(f"Cleaning {file_path.name}...")
 
-    clean_path = file_path.with_name(f"{file_path.stem}_clean.csv")
+    clean_path = file_path.parent.parent / "processed" / f"{file_path.stem}_clean.csv"
+    clean_path.parent.mkdir(parents=True, exist_ok=True)
 
     with (
         file_path.open("r", encoding="utf-8", newline="") as infile,
