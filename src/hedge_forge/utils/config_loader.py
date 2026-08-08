@@ -6,9 +6,11 @@ src/config_loader.py
 """
 
 import os
+from typing import Any
+
 import yaml
 from dotenv import load_dotenv
-from typing import Any, Dict
+
 
 class ConfigLoader:
     """Hybrid configuration loader supporting .env + YAML + environment overrides."""
@@ -20,7 +22,9 @@ class ConfigLoader:
 
         # Load base + environment-specific configs
         self.base = self._load_yaml(base_path)
-        self.override = self._load_yaml(f"config/settings.{self.env}.yaml", optional=True)
+        self.override = self._load_yaml(
+            f"config/settings.{self.env}.yaml", optional=True
+        )
 
         # Merge base + override
         self.config = self._merge(self.base, self.override)
@@ -28,7 +32,7 @@ class ConfigLoader:
         # Substitute env vars like ${DB_PASSWORD}
         self.config = self._substitute_env_vars(self.config)
 
-    def _load_yaml(self, path: str, optional: bool = False) -> Dict[str, Any]:
+    def _load_yaml(self, path: str, optional: bool = False) -> dict[str, Any]:
         if not os.path.exists(path):
             if optional:
                 return {}
@@ -36,7 +40,7 @@ class ConfigLoader:
         with open(path, "r") as file:
             return yaml.safe_load(file) or {}
 
-    def _merge(self, base: Dict[str, Any], override: Dict[str, Any]) -> Dict[str, Any]:
+    def _merge(self, base: dict[str, Any], override: dict[str, Any]) -> dict[str, Any]:
         """Recursively merge base and override YAML configs."""
         merged = base.copy()
         for key, value in override.items():
@@ -66,5 +70,5 @@ class ConfigLoader:
             node = node.get(key, default)
         return node
 
-    def as_dict(self) -> Dict[str, Any]:
+    def as_dict(self) -> dict[str, Any]:
         return self.config

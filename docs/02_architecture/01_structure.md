@@ -144,7 +144,7 @@ hedge_forge/
 │   ├── settings.yaml                  # Base config (universal defaults)
 │   ├── settings.windows.yaml          # Local dev on Windows
 │   ├── settings.linux.yaml            # WSL2, Docker, or Linux dev
-│   └── settings.aws.yaml              # Production / AWS deployment 
+│   └── settings.aws.yaml              # Production / AWS deployment
 │
 ├── logs/                              # Runtime logs and debug outputs
 │   └── hedgeforge.log                 # Application log file
@@ -152,7 +152,7 @@ hedge_forge/
 ├── .github
 │   └── workflows
 │       ├── ci_cd.yaml                 # pytest pipeline tests
-│       ├── pre_commit.yaml            # precommit github actions
+│       └── pre_commit.yaml            # precommit github actions
 │
 ├── main.py                            # Entry point for CLI or API execution
 ├── pyproject.toml                     # Python project metadata and build configuration
@@ -163,7 +163,6 @@ hedge_forge/
 ├── .pre-commit-config.yaml            # Pre-commit configuration file for local dev and CI/CD
 ├── .env                               # Shared across all environments
 ├── environment.yml                    # Conda environment definition
-├── requirements.txt                   # pip-compatible dependencies list
 ├── README.md                          # Top-level project README
 └── .gitignore                         # Git ignore file for virtualenvs, data, and logs
-``` 
+```

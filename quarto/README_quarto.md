@@ -144,10 +144,10 @@ Below is a brief description of what each file contains.
 
 The Hedge-Forge documentation uses Quarto because it:
 
-✅ Combines narrative text, math equations, code, and visuals seamlessly  
-✅ Produces clean, professional HTML and PDF reports  
-✅ Handles LaTeX equations for financial modeling  
-✅ Supports multi-page documentation with logical navigation  
+✅ Combines narrative text, math equations, code, and visuals seamlessly
+✅ Produces clean, professional HTML and PDF reports
+✅ Handles LaTeX equations for financial modeling
+✅ Supports multi-page documentation with logical navigation
 ✅ Works well for both internal and client-facing deliverables
 
 ---

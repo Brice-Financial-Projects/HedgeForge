@@ -1,7 +1,7 @@
 # Project Status — HedgeForge (Monte Carlo Engine)
 
 ## Current Phase
-🧱 **Core design + docs complete**  
+🧱 **Core design + docs complete**
 🚧 **Model + simulation engine implementation beginning**
 
 ## What’s Done

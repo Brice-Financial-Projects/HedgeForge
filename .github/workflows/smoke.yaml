@@ -21,9 +21,13 @@ jobs:
           python-version: "3.12"
 
       # 🧰 Install uv and restore environment
-      - name: Install uv and sync dependencies
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.9.7"
+
+      - name: Sync dependencies with uv
         run: |
-          pip install uv==0.9.7
           uv sync --frozen --all-extras
           uv run python --version
 

@@ -1,8 +1,8 @@
 """
 HedgeForge: Portfolio Risk Modeling Engine
 
-A Python-based quantitative finance project for simulating and optimizing 
-portfolio strategies using Monte Carlo simulations, stochastic processes, 
+A Python-based quantitative finance project for simulating and optimizing
+portfolio strategies using Monte Carlo simulations, stochastic processes,
 and risk analytics.
 """
 
@@ -17,4 +17,3 @@ __email__ = "brice.nelson@example.com"
 # from . import forecasting
 # from . import backtest
 # from . import logger
-

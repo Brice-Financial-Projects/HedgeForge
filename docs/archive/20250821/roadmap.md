@@ -6,7 +6,7 @@ This document outlines the high-level roadmap for **hedge-forge**, transforming 
 
 ## 🚀 Project Vision
 
-**Goal:**  
+**Goal:**
 - Build a professional-grade portfolio optimization system
 - Understand every component (no vibe coding!)
 - Integrate realistic data
@@ -284,8 +284,8 @@ Recommended immediate steps for hedge-forge:
 
 When Phase 10 and beyond are complete, hedge-forge will be:
 
-✅ A senior-level fintech showcase project  
-✅ A bridge from civil engineering → fintech → ML engineering  
+✅ A senior-level fintech showcase project
+✅ A bridge from civil engineering → fintech → ML engineering
 ✅ A portfolio centerpiece demonstrating:
 - advanced optimization algorithms
 - risk analytics

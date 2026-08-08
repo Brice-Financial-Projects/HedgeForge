@@ -23,10 +23,10 @@ Before you begin, ensure you have the following installed:
 2. **Create a virtual environment:**
    ```bash
    python -m venv hedgeforge_env
-   
+
    # On Windows:
    hedgeforge_env\Scripts\activate
-   
+
    # On macOS/Linux:
    source hedgeforge_env/bin/activate
    ```
@@ -224,7 +224,7 @@ pip install -r requirements.txt
 
 #### 2. Optimization Failures
 **Problem:** Optimization returns `success: False`
-**Solution:** 
+**Solution:**
 - Check that you have sufficient data (at least 252 periods)
 - Verify constraint parameters are reasonable
 - Try different initial weights or optimization methods
@@ -294,4 +294,4 @@ streamlit run app/main.py
 
 **Happy optimizing! 🎯**
 
-For questions or issues, please check the troubleshooting section above or create an issue in the repository. 
+For questions or issues, please check the troubleshooting section above or create an issue in the repository.

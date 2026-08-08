@@ -1,0 +1,65 @@
+from pathlib import Path
+
+from src.hedge_forge.scripts.clean_currency_csvs import clean_csv, merge_currency_fields
+
+
+def test_clean_csv_writes_to_processed_directory(tmp_path: Path) -> None:
+    raw_dir = tmp_path / "data" / "raw"
+    raw_dir.mkdir(parents=True)
+
+    input_path = raw_dir / "sample.csv"
+    input_path.write_text(
+        "col_a,col_b,col_c\n" "1,$24,000.00,USD\n",
+        encoding="utf-8",
+    )
+
+    output_path = clean_csv(input_path)
+
+    assert output_path == tmp_path / "data" / "processed" / "sample_clean.csv"
+    assert output_path.exists()
+
+
+def test_merge_currency_fields_rejoins_split_thousands_and_currency_values() -> None:
+    row = [
+        "ACC-001",
+        "LOT-017",
+        "BAC",
+        "060505104",
+        "Bank of America Corp.",
+        "Equity",
+        "Financials",
+        "2020-11-09",
+        "1",
+        "000",
+        "$24.00",
+        "$24",
+        "000.00",
+        "",
+        "$30.50",
+        "$30",
+        "500.00",
+        "$6",
+        "500.00",
+        "USD",
+    ]
+
+    merged = merge_currency_fields(row)
+
+    assert merged == [
+        "ACC-001",
+        "LOT-017",
+        "BAC",
+        "060505104",
+        "Bank of America Corp.",
+        "Equity",
+        "Financials",
+        "2020-11-09",
+        "1,000",
+        "$24.00",
+        "$24,000.00",
+        "",
+        "$30.50",
+        "$30,500.00",
+        "$6,500.00",
+        "USD",
+    ]

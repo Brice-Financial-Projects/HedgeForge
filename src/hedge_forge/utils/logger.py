@@ -7,7 +7,7 @@ src/hedge_forge/utils/logger.py
 
 import logging
 import os
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from logging.handlers import RotatingFileHandler
 
 
@@ -15,8 +15,8 @@ def setup_logging(
     log_dir: str = "logs",
     log_file: str = "hedgeforge.log",
     level: int = logging.DEBUG,
-    max_bytes: int = 5_000_000,   # 5 MB per file
-    backup_count: int = 5,        # keep 5 old log files
+    max_bytes: int = 5_000_000,  # 5 MB per file
+    backup_count: int = 5,  # keep 5 old log files
 ) -> logging.Logger:
     """
     Configure centralized logging for the HedgeForge project.
@@ -71,7 +71,7 @@ def setup_logging(
 
     # Initial log entry (UTC timestamp)
     logger.info(
-        f"Logging initialized at {datetime.now(timezone.utc).isoformat()} UTC | Log file: {log_path}"
+        f"Logging initialized at {datetime.now(UTC).isoformat()} UTC | Log file: {log_path}"
     )
 
     return logger
