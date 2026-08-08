@@ -1,1 +1,0 @@
-"""scripts/__init__.py: scripts package for the project"""

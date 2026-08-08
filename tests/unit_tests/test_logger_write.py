@@ -1,6 +1,5 @@
 """tests/unit_tests/test_logger_write.py"""
 
-import os
 import pytest
 from src.hedge_forge.utils.logger import setup_logging
 

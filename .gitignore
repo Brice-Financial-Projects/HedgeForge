@@ -99,3 +99,6 @@ Thumbs.db
 # Quarto
 quarto/_site/
 *.quarto
+
+# data files
+*data/

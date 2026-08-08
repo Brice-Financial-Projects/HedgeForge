@@ -8,14 +8,14 @@ A structured, high-level plan for manually rebuilding HedgeForge with clarity, d
 **Goal:** Establish a clean, reproducible foundation for all future phases.
 
 - [X] Verify and finalize project folder structure (`src/`, `docs/`, `quarto/`, etc.)
-- [X] Create and activate Conda/uv environment  
+- [X] Create and activate Conda/uv environment
   - [X] Confirm imports (`hedge_forge`)
 - [X] Implement basic `src/hedge_forge/__init__.py`
 - [X] Add centralized logging setup in `src/hedge_forge/utils/logger.py`
 - [X] Configure **pytest** and add one dummy test in `/tests`
-- [X] Create `.pre-commit-config.yaml`  
+- [X] Create `.pre-commit-config.yaml`
   - [X] Include Ruff, Black, isort, and YAML/JSON linting hooks
-- [x] Configure **GitHub Actions CI pipeline**  
+- [x] Configure **GitHub Actions CI pipeline**
   - [x] Lint → Test → Build stages
   - [ ] Cache dependencies for faster runs
 - [x] Confirm logs write correctly to `/logs/hedgeforge.log`
@@ -36,10 +36,10 @@ A structured, high-level plan for manually rebuilding HedgeForge with clarity, d
 ## 🧮 Phase 3 — Core Modeling Foundations
 **Goal:** Establish the base quantitative calculations.
 
-- [ ] Implement functions in `src/risk.py`  
-  - [ ] Volatility  
-  - [ ] Covariance matrix  
-  - [ ] Correlation  
+- [ ] Implement functions in `src/risk.py`
+  - [ ] Volatility
+  - [ ] Covariance matrix
+  - [ ] Correlation
   - [ ] VaR / CVaR
 - [ ] Add tests for numerical consistency using synthetic data
 - [ ] Document formulas in `docs/03_modeling/math_foundations.md`
@@ -118,5 +118,5 @@ A structured, high-level plan for manually rebuilding HedgeForge with clarity, d
 
 ---
 
-**Branch:** `dev_no_ai`  
+**Branch:** `dev_no_ai`
 **Focus:** Manual rebuild emphasizing correctness, reproducibility, and learning through full-stack quantitative design.

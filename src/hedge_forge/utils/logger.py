@@ -15,8 +15,8 @@ def setup_logging(
     log_dir: str = "logs",
     log_file: str = "hedgeforge.log",
     level: int = logging.DEBUG,
-    max_bytes: int = 5_000_000,   # 5 MB per file
-    backup_count: int = 5,        # keep 5 old log files
+    max_bytes: int = 5_000_000,  # 5 MB per file
+    backup_count: int = 5,  # keep 5 old log files
 ) -> logging.Logger:
     """
     Configure centralized logging for the HedgeForge project.

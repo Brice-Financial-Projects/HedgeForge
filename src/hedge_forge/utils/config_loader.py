@@ -10,6 +10,7 @@ import yaml
 from dotenv import load_dotenv
 from typing import Any, Dict
 
+
 class ConfigLoader:
     """Hybrid configuration loader supporting .env + YAML + environment overrides."""
 
@@ -20,7 +21,9 @@ class ConfigLoader:
 
         # Load base + environment-specific configs
         self.base = self._load_yaml(base_path)
-        self.override = self._load_yaml(f"config/settings.{self.env}.yaml", optional=True)
+        self.override = self._load_yaml(
+            f"config/settings.{self.env}.yaml", optional=True
+        )
 
         # Merge base + override
         self.config = self._merge(self.base, self.override)

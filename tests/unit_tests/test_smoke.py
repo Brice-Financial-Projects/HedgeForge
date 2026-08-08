@@ -1,4 +1,5 @@
 """Ultra-minimal smoke test for HedgeForge (uv-compatible, src layout)."""
+
 import sys
 from pathlib import Path
 

@@ -144,7 +144,7 @@ hedge_forge/
 │   ├── settings.yaml                  # Base config (universal defaults)
 │   ├── settings.windows.yaml          # Local dev on Windows
 │   ├── settings.linux.yaml            # WSL2, Docker, or Linux dev
-│   └── settings.aws.yaml              # Production / AWS deployment 
+│   └── settings.aws.yaml              # Production / AWS deployment
 │
 ├── logs/                              # Runtime logs and debug outputs
 │   └── hedgeforge.log                 # Application log file
@@ -165,4 +165,4 @@ hedge_forge/
 ├── environment.yml                    # Conda environment definition
 ├── README.md                          # Top-level project README
 └── .gitignore                         # Git ignore file for virtualenvs, data, and logs
-``` 
+```

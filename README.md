@@ -247,7 +247,8 @@ uv run mypy src
 Run formatting checks:
 
 ```bash
-uv run black --check .
+uv run ruff check .
+uv run ruff format --check .
 ```
 
 ---
