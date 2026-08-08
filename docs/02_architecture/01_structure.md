@@ -152,7 +152,7 @@ hedge_forge/
 ├── .github
 │   └── workflows
 │       ├── ci_cd.yaml                 # pytest pipeline tests
-│       ├── pre_commit.yaml            # precommit github actions
+│       └── pre_commit.yaml            # precommit github actions
 │
 ├── main.py                            # Entry point for CLI or API execution
 ├── pyproject.toml                     # Python project metadata and build configuration
@@ -163,7 +163,6 @@ hedge_forge/
 ├── .pre-commit-config.yaml            # Pre-commit configuration file for local dev and CI/CD
 ├── .env                               # Shared across all environments
 ├── environment.yml                    # Conda environment definition
-├── requirements.txt                   # pip-compatible dependencies list
 ├── README.md                          # Top-level project README
 └── .gitignore                         # Git ignore file for virtualenvs, data, and logs
 ``` 
