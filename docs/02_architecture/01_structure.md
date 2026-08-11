@@ -36,7 +36,9 @@ hedge_forge/
 │   ├── 03_modeling/                   # Quantitative and mathematical model documentation
 │   │   ├── math_foundations.md        # Core equations and mathematical derivations
 │   │   ├── risk_metrics.md            # Explanation of VaR, CVaR, Sharpe, and related measures
+│   │   ├── portfolio_construction.md  # Portfolio construction principles and constraints
 │   │   ├── optimization_algorithms.md # Portfolio optimization techniques and objectives
+│   │   ├── trading_strategies.md         # Overview of implemented trading strategies
 │   │   ├── forecasting_models.md      # Forecasting methods and predictive model notes
 │   │   └── backtesting_framework.md   # Rolling tests, evaluation, and benchmark comparisons
 │   │
@@ -85,6 +87,17 @@ hedge_forge/
 │       │   ├── volatility.py          # Rolling and annualized volatility computations
 │       │   ├── correlation.py         # Covariance and correlation matrix generation
 │       │   └── stress_tests.py        # Scenario and stress test simulation utilities
+│       │
+│       ├── strategies/                # Trading and investment strategies
+│       │   ├── __init__.py
+│       │   ├── base.py                 # Base class for trading and investment strategies
+│       │   ├── momentum.py             # Momentum-based trading strategies
+│       │   ├── mean_reversion.py       # Mean reversion trading strategies
+│       │   ├── trend_following.py      # Trend-following trading strategies
+│       │   ├── pairs_trading.py        # Pairs trading strategy implementation
+│       │   ├── signal_generation.py    # Signal generation and entry/exit logic for strategies
+│       │   └── position_sizing.py      # Position sizing and risk management utilities
+│       │
 │       │
 │       ├── utils/                     # Shared utility modules and helpers
 │       │   ├── __init__.py
